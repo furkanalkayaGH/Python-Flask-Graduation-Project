@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="TemplateMo">
 
-        <title>First Portfolio Bootstrap 5 Theme</title>
+        <title>{% block title %}Home{% endblock %}</title>
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,21 +16,14 @@
         
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="static/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="static/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/magnific-popup.css" rel="stylesheet">
+        <link href="static/magnific-popup.css" rel="stylesheet">
 
-        <link href="css/templatemo-first-portfolio-style.css" rel="stylesheet">
+        <link href="static/templatemo-first-portfolio-style.css" rel="stylesheet">
         
-<!--
-
-TemplateMo 578 First Portfolio
-
-https://templatemo.com/tm-578-first-portfolio
-
--->
     </head>
     
     <body>
@@ -48,7 +41,7 @@ https://templatemo.com/tm-578-first-portfolio
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a href="index.html" class="navbar-brand mx-auto mx-lg-0">OCR-TAX</a>
+                <a href="/" class="navbar-brand mx-auto mx-lg-0">OCR-TAX</a>
 
                 <div class="d-flex align-items-center d-lg-none">
                     
@@ -92,7 +85,7 @@ https://templatemo.com/tm-578-first-portfolio
                         <div class="col-lg-7 col-12">
                             <div class="hero-text">
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
-                                    <img src="images/5064833.png" class="avatar-image-large img-fluid" alt="">
+                                    <img src="static/images/5064833.png" class="avatar-image-large img-fluid" alt="">
 
                                     <h1 class="hero-title ms-3 mb-0">Welcome to OCR-TAX</h1>
                                 </div>
@@ -104,7 +97,7 @@ https://templatemo.com/tm-578-first-portfolio
 
                         <div class="col-lg-5 col-12 position-relative">
                             <div class="hero-image-wrap"></div>
-                            <img src="images/4222023.png" class="hero-image img-fluid" alt="">
+                            <img src="static/images/4222023.png" class="hero-image img-fluid" alt="">
                         </div>
 
                     </div>
@@ -123,7 +116,7 @@ https://templatemo.com/tm-578-first-portfolio
                                 <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
                                     <h2 class="text-white me-4 mb-0">My Story</h2>
 
-                                    <img src="images/1654126540488.jpg" class="avatar-image img-fluid" alt="">
+                                    <img src="static/images/1654126540488.jpg" class="avatar-image img-fluid" alt="">
                                 </div>
 
                                 <h3 class="pt-2 mb-3">a little bit about Furkan</h3>
@@ -186,23 +179,23 @@ https://templatemo.com/tm-578-first-portfolio
                         </div>
 
                         <div class="col-lg-2 col-4 ms-auto clients-item-height">
-                            <img src="images/clients/cachet.svg" class="clients-image img-fluid" alt="">
+                            <img src="static/images/clients/cachet.svg" class="clients-image img-fluid" alt="">
                         </div>
 
                         <div class="col-lg-2 col-4 clients-item-height">
-                            <img src="images/clients/guitar-center.svg" class="clients-image img-fluid" alt="">
+                            <img src="static/images/clients/guitar-center.svg" class="clients-image img-fluid" alt="">
                         </div>
 
                         <div class="col-lg-2 col-4 clients-item-height">
-                            <img src="images/clients/tokico.svg" class="clients-image img-fluid" alt="">
+                            <img src="static/images/clients/tokico.svg" class="clients-image img-fluid" alt="">
                         </div>
 
                         <div class="col-lg-2 col-4 clients-item-height">
-                            <img src="images/clients/shopify.svg" class="clients-image img-fluid" alt="">
+                            <img src="static/images/clients/shopify.svg" class="clients-image img-fluid" alt="">
                         </div>
 
                         <div class="col-lg-2 col-4 me-auto clients-item-height">
-                            <img src="images/clients/profil-rejser.svg" class="clients-image img-fluid" alt="">
+                            <img src="static/images/clients/profil-rejser.svg" class="clients-image img-fluid" alt="">
                         </div>
 
                     </div>
@@ -229,13 +222,40 @@ https://templatemo.com/tm-578-first-portfolio
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/magnific-popup-options.js"></script>
-        <script src="js/custom.js"></script>
+        <script 
+         type="text/javascript"
+         src="{{ url_for('static', filename='jquery.min.js') }}">
+        </script>
+
+        <script
+         type="text/javascript" 
+         src="{{url_for('static', filename='bootstrap.min.js') }}">
+        </script>
+
+        <script   
+        type="text/javascript" 
+        src="{{url_for('static', filename='jquery.sticky.js') }}">
+        </script>
+
+        <script
+        type="text/javascript" 
+        src="{{url_for('static', filename='click-scroll.js') }}">
+        </script>
+
+        <script
+        type="text/javascript" 
+        src="{{url_for('static', filename='jquery.magnific-popup.min.js') }}">
+        </script>
+
+        <script
+        type="text/javascript" 
+        src="{{url_for('static', filename='magnific-popup-options.js') }}">
+        </script>
+
+        <script
+        type="text/javascript" 
+        src="{{url_for('static', filename='custom.js') }}">
+        </script>
 
     </body>
 </html>
