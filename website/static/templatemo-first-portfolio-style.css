@@ -465,6 +465,10 @@ strong {
   top: 8px;
 }
 
+label {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
 
 /*---------------------------------------
   HERO              
@@ -520,8 +524,10 @@ strong {
   pointer-events: none;
 }
 
+
 .hero-image {
   position: absolute;
+  left: 124px;
   z-index: 22;
   top: 0;
   width: 100%;
