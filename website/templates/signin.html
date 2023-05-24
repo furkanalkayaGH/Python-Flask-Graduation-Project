@@ -78,16 +78,16 @@
         {% if messages %}
             {% for category, message in messages %}
             {% if category == 'error' %}
-            <div class="alert alert-danger alter-dissmissable fade show" role="alert" style="z-index: +4">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-bottom: 0px">
                 {{ message }}
-                <button type="button" class="close" data-dismiss="alert">
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             {% else %}
-            <div class="alert alert-success alter-dissmissable fade show" role="alert" style="z-index: +4;">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-bottom: 0px">
                 {{ message }}
-                <button type="button" class="close" data-dismiss="alert">
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

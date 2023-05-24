@@ -10,7 +10,17 @@ def signup():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
         
-        if len(email) < 4:
+        if email == '':
+            flash('Please fill the e-mail section', category='error')
+        elif firstName == '':
+            flash('Please fill the name section', category='error')
+        elif password1 == '':
+            flash('Please fill the password section', category='error')
+        elif password2 == '':
+            flash('Please fill the password confirm section', category='error')
+
+                
+        elif len(email) < 4:
             flash('Email must be greater than 3 characters.', category='error')
         elif len(firstName) < 2:
             flash('First name must be greater than 1 characters.', category='error')
