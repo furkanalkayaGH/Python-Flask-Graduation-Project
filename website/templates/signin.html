@@ -32,48 +32,6 @@
     
     <body>
 
-        
-
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <a href="/" class="navbar-brand mx-auto mx-lg-0">OCR-TAX</a>
-
-                <div class="d-flex align-items-center d-lg-none">
-                    
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-5">
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" id="home" href="/">Home</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" id="info" href="/info">Information</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" id="about" href="/sign-up">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" id="login" href="/sign-in">Sign in</a>
-                        </li>
-
-                    </ul>
-
-                    <div class="d-lg-flex align-items-center d-none ms-auto">
-                        
-                        
-                    </div>
-                </div>
-
-            </div>
-        </nav>
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
@@ -94,7 +52,46 @@
             {% endif %}
             {% endfor %}
         {% endif %}
-        {% endwith %} 
+        {% endwith %}
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a href="/" class="navbar-brand mx-auto mx-lg-0">OCR-TAX</a>
+
+                <div class="d-flex align-items-center d-lg-none">
+                    
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="home" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="about" href="/sign-up">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="login" href="/sign-in">Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="info" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-lg-flex align-items-center d-none ms-auto">
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+         
            
         <main>
 

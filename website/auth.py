@@ -14,7 +14,10 @@ def signup():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
         
-        if email == '':
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash('Email already exist', category='error')
+        elif email == '':
             flash('Please fill the e-mail section', category='error')
         elif first_name == '':
             flash('Please fill the name section', category='error')
@@ -34,6 +37,7 @@ def signup():
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
+            login_user(user, remember=True)
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))  
               
@@ -43,8 +47,29 @@ def signup():
 
 @auth.route('/sign-in', methods=['GET','POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('views.home'))
+            else:
+                flash('Incorrect password', category='error')
+        elif email == '':
+            flash('Please fill the Email section.', category='error')
+        elif password == '':
+            flash('Please fill the Password section.', category='error')
+        else:
+            flash('Email does not exist.', category='error')
+        
     return render_template("signin.html")
 
-@auth.route('/info')
-def info():
-    return render_template("info.html")
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('auth.signup'))
