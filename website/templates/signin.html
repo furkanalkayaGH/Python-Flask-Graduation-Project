@@ -69,6 +69,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="info" href="/logout">Logout</a>
+                        </li>
+                        {% else %}
                         <li class="nav-item">
                             <a class="nav-item nav-link" id="home" href="/">Home</a>
                         </li>
@@ -78,9 +83,8 @@
                         <li class="nav-item">
                             <a class="nav-item nav-link" id="login" href="/sign-in">Sign in</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-item nav-link" id="info" href="/logout">Logout</a>
-                        </li>
+                        {% endif %}
+                        
                     </ul>
 
                     <div class="d-lg-flex align-items-center d-none ms-auto">

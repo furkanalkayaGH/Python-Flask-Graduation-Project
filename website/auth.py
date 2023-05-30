@@ -43,7 +43,7 @@ def signup():
               
     data = request.form
     print(data)
-    return render_template("signup.html")
+    return render_template("signup.html", user=current_user)
 
 @auth.route('/sign-in', methods=['GET','POST'])
 def login():
@@ -66,10 +66,16 @@ def login():
         else:
             flash('Email does not exist.', category='error')
         
-    return render_template("signin.html")
+    return render_template("signin.html", user=current_user)
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.signup'))
+    return redirect(url_for('views.home'))
+
+
+@auth.route('/ocr', methods=['GET'])
+@login_required
+def ocr():
+    return render_template("ocr.html", user=current_user)

@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="TemplateMo">
 
-        <title>{% block title %}Home{% endblock %}</title>
+        <title>{% block title %}HOME{% endblock %}</title>
 
         <!-- CSS FILES -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,20 +49,27 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5">
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-item nav-link" id="home" href="/">Home</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-item nav-link" id="info" href="/info">Information</a>
+                            <a class="nav-item nav-link" id="begin" href="/ocr">Let's Begin</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="info" href="/logout">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" id="home" href="/">Home</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-item nav-link" id="about" href="/sign-up">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-item nav-link" id="login" href="/sign-in">Sign in</a>
                         </li>
+                        {% endif %}
 
                     </ul>
 
@@ -86,11 +93,11 @@
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
                                     <img src="static/images/5064833.png" class="avatar-image-large img-fluid" style="border-radius:11px;" alt="">
 
-                                    <h1 class="hero-title ms-3 mb-0">Welcome to OCR-TAX</h1>
+                                    <h1 class="hero-title ms-3 mb-0">OCR PAGE PLACEHOLDER</h1>
                                 </div>
 
                                 <h2 class="mb-4" color="red">Uskudar University Project</h2>
-                                <p class="mb-4"><a class="custom-btn btn custom-link" id href="/sign-up">Let's begin</a></p>
+                                <p class="mb-4"><a class="custom-btn btn custom-link" id href="/ocr">Let's begin</a></p>
                             </div>
                         </div>
 
