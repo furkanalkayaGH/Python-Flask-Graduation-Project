@@ -23,6 +23,8 @@
         <link href="static/magnific-popup.css" rel="stylesheet">
 
         <link href="static/templatemo-first-portfolio-style.css" rel="stylesheet">
+
+        <link href="static/custom.style.css" rel="stylesheet" >
         
     </head>
     
@@ -91,19 +93,61 @@
                         <div class="col-lg-7 col-12">
                             <div class="hero-text">
                                 <div class="hero-title-wrap d-flex align-items-center mb-4">
-                                    <img src="static/images/5064833.png" class="avatar-image-large img-fluid" style="border-radius:11px;" alt="">
-
-                                    <h1 class="hero-title ms-3 mb-0">OCR PAGE PLACEHOLDER</h1>
+                                    <h1 class="hero-title ms-3 mb-0">Upload Your File:</h1>
+                                    
                                 </div>
 
-                                <h2 class="mb-4" color="red">Uskudar University Project</h2>
-                                <p class="mb-4"><a class="custom-btn btn custom-link" id href="/ocr">Let's begin</a></p>
+                                <h2 class="mb-4" color="red">Supported Files (png, jpeg)</h2>
+                                <p class="mb-4">
+                                </p>
                             </div>
                         </div>
 
-                        <div class="col-lg-5 col-12 position-relative">
-                            <div class="hero-image-wrap"></div>
-                            <img src="static/images/4222023.png" class="hero-image img-fluid" alt="">
+                        <div class="col-lg-5 col-12 position-relative" 
+                        style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;">
+
+                        <form method="POST" style="display: flex;" enctype="multipart/form-data">                
+                            <label class="custom-btn btn custom-link" 
+                            style="display: flex;
+                            height: 150px;
+                            width: 150px;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 80;
+                            margin-right:10px;
+                            margin-top: 70px;"> Browse File
+                            <input class="custom-btn btn custom-link" 
+                            style="
+                            display: none;
+                            height: 150px;
+                            width: 150px;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 100;
+                            position:relative;
+                            margin-top: 70px;" type="file" name="image_file">
+                            </label>
+                            
+                            <input class="custom-btn btn custom-link" 
+                            style="
+                            display: flex;
+                            height: 150px;
+                            width: 150px;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 80;
+                            margin-top: 70px;" type="submit" value="Upload">
+
+                        </form>
+                            <div class="hero-image-wrap" 
+                            style="
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;">
+                            </div>
                         </div>
 
                     </div>
