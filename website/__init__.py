@@ -11,6 +11,9 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'sdsdfsdfsdfdfg'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    UPLOAD_FOLDER = '/website/static/images/UPLOADS'
+    ALLOWED_EXTENSIONS = {'png', 'jpeg', 'jpg'}
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     db.init_app(app)
 
     

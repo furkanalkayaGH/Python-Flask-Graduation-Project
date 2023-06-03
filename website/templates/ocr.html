@@ -138,6 +138,7 @@
                             z-index: 80;
                             margin-right:10px;
                             margin-top: 70px;"> Browse File
+                            
                             <input class="custom-btn btn custom-link" 
                             style="
                             display: none;
@@ -148,9 +149,10 @@
                             z-index: 100;
                             position:relative;
                             margin-top: 70px;" for="file" id="fileInput" type="file" onchange="updateLabel(this)" name="image_file">
-                            <label for="fileInput">Choose a file</label>
                             </label>
-                            
+
+                            <label  for="fileInput" style="z-index: 100;">Choose a file</label>
+
                             <input class="custom-btn btn custom-link" 
                             style="
                             display: flex;
@@ -327,5 +329,16 @@
         src="{{url_for('static', filename='custom.js') }}">
         </script>
 
+        <script>
+            function updateLabel(input){
+                var fileLabel = document.getElementById('fileLabel');
+                if (input.files.lenght > 0){
+                    fileLabel.innerHTML = input.files[0].name;
+                } else {
+                    fileLabel.innerHTML = 'Choose a file'
+                }
+            }
+            
+        </script>
     </body>
 </html>

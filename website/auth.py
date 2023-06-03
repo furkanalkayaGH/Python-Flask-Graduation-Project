@@ -4,6 +4,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 from PIL import Image
+import os
+from werkzeug.utils import secure_filename
+
 
 auth = Blueprint('auth', __name__)
 
@@ -89,3 +92,7 @@ def ocr():
             
         
     return render_template("ocr.html", user=current_user)
+
+## def allowed_file(filename):
+    ## return '.' in filename and \
+        ## filename.rsplit('.',1).lower() in ALLOWED_EXTENSIONS
