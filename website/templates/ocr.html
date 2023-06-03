@@ -10,6 +10,10 @@
         <title>{% block title %}HOME{% endblock %}</title>
 
         <!-- CSS FILES -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,12 +33,27 @@
     </head>
     
     <body>
-
-        <section class="preloader">
-            <div class="spinner">
-                <span class="spinner-rotate"></span>    
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            {% if category == 'error' %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-bottom: 0px">
+                {{ message }}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </section>
+            {% else %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-bottom: 0px">
+                {{ message }}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -128,7 +147,8 @@
                             align-items: center;
                             z-index: 100;
                             position:relative;
-                            margin-top: 70px;" type="file" name="image_file">
+                            margin-top: 70px;" for="file" id="fileInput" type="file" onchange="updateLabel(this)" name="image_file">
+                            <label for="fileInput">Choose a file</label>
                             </label>
                             
                             <input class="custom-btn btn custom-link" 

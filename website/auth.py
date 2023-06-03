@@ -3,6 +3,7 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+from PIL import Image
 
 auth = Blueprint('auth', __name__)
 
@@ -75,7 +76,16 @@ def logout():
     return redirect(url_for('views.home'))
 
 
-@auth.route('/ocr', methods=['GET'])
+@auth.route('/ocr', methods=['GET','POST'])
 @login_required
 def ocr():
+    if request.method == 'POST':
+        image_file = request.form.get('image_file')
+
+        if image_file not in request.files:
+            flash("Please select a file", category='error')
+            return render_template("ocr.html", user=current_user)
+        
+            
+        
     return render_template("ocr.html", user=current_user)
