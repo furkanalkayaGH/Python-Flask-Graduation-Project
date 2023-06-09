@@ -6,6 +6,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 from PIL import Image
 import os
 from werkzeug.utils import secure_filename
+from website.ocr import extract_text
 
 
 auth = Blueprint('auth', __name__)
@@ -84,17 +85,18 @@ def logout():
 
 
 @auth.route('/ocr', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def ocr():
     if request.method == 'POST':
         image_file = request.files.get('image_file')
         content_title = image_file.filename
         upload_dir = os.path.join(os.getcwd(), "website", "uploads")
-
-        # image_file.save(os.path.join(upload_dir, content_title))
+        image_file.save(os.path.join(upload_dir, content_title))
+        img = Image.open(os.path.join(upload_dir, content_title))
         if image_file not in request.files:
             flash("Please select a file", category='error')
             return render_template("ocr.html", user=current_user)
+        return {"msg": extract_text(img)}
     return render_template("ocr.html", user=current_user)
 
 # def allowed_file(filename):
