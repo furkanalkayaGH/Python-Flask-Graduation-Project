@@ -85,7 +85,7 @@ def logout():
 
 
 @auth.route('/ocr', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def ocr():
     if request.method == 'POST':
         image_file = request.files.get('image_file')
@@ -94,7 +94,7 @@ def ocr():
         image_file.save(os.path.join(upload_dir, content_title))
         img = Image.open(os.path.join(upload_dir, content_title))
         if image_file not in request.files:
-            flash("Please select a file", category='error')
+            #flash("Please select a file", category='error')
             return render_template("ocr.html", user=current_user)
         return {"msg": extract_text(img)}
     return render_template("ocr.html", user=current_user)
