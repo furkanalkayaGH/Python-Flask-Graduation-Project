@@ -93,6 +93,3 @@ def ocr():
         
     return render_template("ocr.html", user=current_user)
 
-## def allowed_file(filename):
-    ## return '.' in filename and \
-        ## filename.rsplit('.',1).lower() in ALLOWED_EXTENSIONS
